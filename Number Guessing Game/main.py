@@ -9,16 +9,16 @@ IS_GAME_ON=True # To create an infinitive loop
 
 
 def play_again_question():
-    global IS_GAME_ON   # We are inside a function because of that is we want to use a variable outside fuction we should use this method
+    global IS_GAME_ON   # We are inside a function because of that if we want to use a variable from outside of fuction we should use this method
     print("\n"*50)
     print(wanna_play_again_logo)
-    play_again_question=input("Do you wanna play again? y/n: ").lower()   # whatever we write is going to be all lowercase
+    play_again_question=input("Do you wanna play again? y/n: ").lower()   # Whatever we write is going to be all lowercase
     if play_again_question=="n":
         print("\n"*50)
         print(game_over)
         IS_GAME_ON=False  # To stop loop
     else:
-        game()
+        game()   # To run function
         
 
 def equal():
@@ -26,7 +26,7 @@ def equal():
     print(correct_logo)
     print( "You guessed the number correct.Congrats")
     time.sleep(3)   # Wait 3 seconds before make other operation
-    play_again_question()
+    play_again_question()  # To run function
    
 
 def live_equal_zero():
@@ -34,7 +34,7 @@ def live_equal_zero():
     print(wrong_logo)
     print(f"You lost.The number was: {random_number}")
     time.sleep(3)  # Wait 3 seconds before make other operation
-    play_again_question()
+    play_again_question()  # To run function
 
 
 
@@ -44,8 +44,8 @@ def operations():
     else:
         lives=5
 
-    while lives!=0:
-        guess_number=int(input("Guess a number: "))
+    while lives!=0:   # While lives variable not equal to zero
+        guess_number=int(input("Guess a number: "))   # Input's default data type is str but I need int data type because of that I converted it
         if guess_number==random_number:
             equal()
         elif guess_number>random_number:
@@ -64,11 +64,9 @@ def operations():
         live_equal_zero()
 
 
-
-
 def game():
     global random_number,level
-    while IS_GAME_ON:
+    while IS_GAME_ON:   # While True
         random_number=random.randint(1,100)   # to choose a random integer number between 1-100
         print("\n"*50)
         print(number_guess_game)
@@ -87,8 +85,7 @@ def game():
             print("You have 5 attempts")
             operations()
 
-game()
-
+game()  # To run function
 
 
 
